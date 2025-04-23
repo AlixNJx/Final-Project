@@ -215,140 +215,6 @@ class LanguageCourse :
         with open('course.json', 'w') as file :
             json.dump(db, file, indent=4)
 
-# class CheckAnswer :
-#     def __init__(self):
-#         self.questions = questions
-#         self.options = options
-#         self.correct_answer = correct_answer
-#         self.scores = {}
-#         self.answer = {}
-#
-#     def load(self):
-#         with open('score.json', 'r') as file :
-#             db = json.load(file)
-#         return db
-#
-#     # def write2json(self):
-#     #     with open('db.json', 'w') as file :
-#     #         json.dump(db, file, indent=4)
-#
-#     def check_answer(self):
-#         return user_answer == self.correct_answer
-#
-#     def quiz(self):
-#         self.questions = questions
-#         self.user_score = 0
-#
-#         for idx, question in enumerate(self.questions, 1) :
-#             print(f'{idx} : {question['Questions']}')
-#             for option in question['Option'] :
-#                 print(option)
-#             user_answer = input('What is your answer :')
-#             if user_answer.lower() == question['answer'].lower():
-#                 self.user_score += 1
-#                 print('Your answer wae correct ✅')
-#                 print('-----' * 10)
-#             else :
-#                 print('Your answer war wrong ‼️')
-#                 print('-----' * 10)
-#     def end_quiz(self):
-#         print(f'Your total score is : {self.user_score}')
-#         print('-----' * 10)
-#
-#     def save_score(self):
-#         with open('score.json') as file :
-#             json.dump('score.json', file, indent=4)
-#         print('Saved ✅')
-#         print('-----' * 10)
-#
-#     def scores(self):
-#         try :
-#             with open('score.json', 'r') as file :
-#                 self.user_score = json.load(file)
-#                 print('Saved ✅')
-#                 print('-----' * 10)
-#         except FileNotFoundError:
-#             print('Error ‼️')
-
-# class Question:
-#     def __init__(self,question_text,options,correct_answer):
-#         self.question_text = question_text
-#         self.options = options
-#         self.correct_answer = correct_answer
-#
-#     def load(self):
-#         with open('score.json', 'r') as file:
-#             db = json.load(file)
-#             return db
-#
-#     def check_answer(self,answer):
-#         return answer == self.correct_answer
-
-# class Exam :
-#     def __init__(self):
-#         self.username = self.get_name()
-#         self.exam = self.exam()
-#         self.user_score = self.user_score()
-#
-#     def load(self):
-#         with open('score.json', 'r') as file :
-#             db = json.load(file)
-#         return db
-#
-#     def get_name(self):
-#         first_name = input('Enter your first name :')
-#         last_name = input('Enter your last name :')
-#         self.username = f'{first_name} {last_name}'
-#         return self.username
-#
-#     def exam(self):
-#         db = self.load()
-#         user_score = 0
-#         while True :
-#             question1 = input('Where is the capital of france ?\n1)europe\n2)italy\n3)paris\n4)none\n -->')
-#             if  question1 == '3' :
-#                 print('Correct')
-#                 user_score += 1
-#             else :
-#                 print('Wrong')
-#             question2 = input('How many continent do we have ?\n1)5\n2)6\n3)7\n4)8\n -->')
-#             if question2 == '8' :
-#                 print('Correct')
-#                 user_score += 1
-#             else :
-#                 print('Wrong')
-#             question3 = input('What is the official language of iran ?\n1)arabic\n2)persian\n3)french\n4)turkish\n -->')
-#             if question3 == '2' :
-#                 print('Correct')
-#                 user_score += 1
-#             else :
-#                 print('Wrong')
-#             question4 = input('Where is the capital of italy ?\n1)napoli\n2)florance\n3)milan\n4)rome\n -->')
-#             if question4 == '4' :
-#                 print('Correct')
-#                 user_score += 1
-#             else :
-#                 print('Wrong')
-#             question5 = input('How many fingers do we have ?\n1)5\n2)3\n3)8\n4)4\n -->')
-#             if question5 == '1' :
-#                 print('Correct')
-#                 user_score += 1
-#             else :
-#                 print('Wrong')
-#                 break
-#
-#     def writeScore(self):
-#         db = self.load()
-#         result = {
-#             'Username ' : self.username,
-#             'User Score ' : self.user_score,
-#         }
-#         db.append(result)
-#
-#         with open('score.json', 'w') as file :
-#             json.dump(db, file, indent=4)
-#             print('Saved')
-
 class Exam :
     def __init__(self):
         self.name = ''
@@ -415,113 +281,12 @@ class Exam :
             'Quiz Time ' : str(datetime.datetime.now())
         }
 
-        # filename = 'score.json'
-        # scores = []
-
-        # with open('score.json', 'r') as file :
-        #     try :
-        #         scores = json.load(file)
-        #     except json.JSONDecoderError :
-        #         scores = []
-
         db.append(data)
 
         with open('score.json', 'w') as file :
             json.dump(db, file, indent=4)
 
 quiz = Exam()
-
-# quiz.username()
-# quiz.run_quiz()
-
-# class Exam:
-#     def __init__(self):
-#         self.username = self.get_name()
-#         self.title = title
-#         self.question = []
-#         self.user_score = 0
-#
-#     def load(self):
-#         with open('score.json', 'r') as file:
-#             db = json.load(file)
-#             return db
-#
-#     def get_name(self):
-#         first_name = input('Enter your first name: ')
-#         last_name = input('enter your last name: ')
-#         self.username = f'{first_name} {last_name}'
-#         return self.username
-#
-#     def add_question(self, question):
-#         self.question.append(question)
-#
-#     def start_exam(self):
-#         for i, question in enumerate(self.question,1):
-#             print(f'{i}:{question.question_text}')
-#             for idx,option in enumerate(question.options,1):
-#                 print(f'{idx}.{option}')
-#
-#             answer=int(input('Enter your answer: '))
-#             if question.check_answer(answer):
-#                 print('your answer is correct')
-#                 self.user_score +=1
-#             else:
-#                 print('wrong answer')
-#         print(f'your total score: {self.user_score}')
-#         self.save_result()
-#
-#     def save_result(self):
-#         db=self.load()
-#
-#         result = {
-#             'Username' : self.username,
-#             'exam_title': self.title,
-#             'user_score': self.user_score
-#         }
-#         db.append(result)
-#
-#         with open('score.json', 'a') as file :
-#             json.dump(result,file,indent=4)
-#             print('saved')
-
-# exam = Exam('test exam')
-# question1 = Question(
-#     'where is the capital of france?',
-#     ['1)europe','2)italy','3)paris','4)none'],
-#     3
-# )
-#
-# question2 = Question(
-#     'how many continent do we have ? ',
-#     ['1)5','2)6','3)7','4)8'],
-#     4
-# )
-#
-# question3 = Question(
-#     'what is the official language of iran?  ',
-#     ['1)arabic','2)farsi','3)french','4)turkish'],
-#     2
-# )
-#
-# question4= Question(
-#     'where is the capital of italy? ',
-#     ['1)vanice','2)florance','3)milan','4)rome'],
-#     4
-# )
-#
-# question5= Question(
-#     'how many fingers do we have ?',
-#     ['1)5','2)3','3)8','4)4'],
-#     1
-# )
-
-# exam.add_question(question1)
-# exam.add_question(question2)
-# exam.add_question(question3)
-# exam.add_question(question4)
-# exam.add_question(question5)
-#
-# exam.start_exam()
 
 class forgot_password :
     def __init__(self):
@@ -557,38 +322,6 @@ class forgot_password :
             print('Username not found or Security answers incorrect')
             print('---' * 10)
 
-        #     else :
-        #         print('main password is not correct ‼️')
-        #         print('---' * 10)
-        #         return
-        # print('Username not founded ‼️')
-        # print('---' * 10)
-
-        # for i in db:
-        #     username = input('Enter your username :')
-        #     sq1 = input('Where were you born ? :')
-        #     sq2 = input('What is 4*5 ? :')
-        #     if i['Username '] == username and sq1 == 'iran' and sq2 == '20':
-        #         new_password = input('Enter your new password :')
-        #         with open('db.json', 'w') as file:
-        #             json.dump(db, file, indent=4)
-        #         print('Password Changed✅')
-        #         print('---' * 10)
-        #         return username, sq1, sq2, new_password
-        #     else:
-        #         print('main password is not correct‼️')
-        #         print('---' * 10)
-        #         return
-        # print('Username not founded‼️')
-        # print('---' * 10)
-
-# class exam :
-#     def __init__(self):
-#         self.exam, self.test = self.final()
-#
-#     def final(self):
-#
-
 class main :
     def __init__(self):
         self.menu = main
@@ -616,12 +349,5 @@ class main :
                 print('Invalid Answer ‼️')
                 print('-----' * 10)
 
-# signup = register()
-# signup.write()
-
-# login = Login()
-# login.write()
-
 main = main()
 main.main()
-# main.write()
